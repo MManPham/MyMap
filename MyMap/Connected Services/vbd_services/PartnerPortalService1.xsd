@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoute" nillable="true" type="tns:ArrayOfRoute" />
+  <xs:complexType name="Route">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Geometry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Steps" nillable="true" type="tns:Steps" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Via_Distances" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Via_Durations" nillable="true" type="q2:ArrayOfint" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Via_Indices" nillable="true" type="q3:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="Steps">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Distances" nillable="true" type="q4:ArrayOfint" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Durations" nillable="true" type="q5:ArrayOfint" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Indices" nillable="true" type="q6:ArrayOfint" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Names" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Turns" nillable="true" type="tns:ArrayOfTurnInstruction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Steps" nillable="true" type="tns:Steps" />
+  <xs:complexType name="ArrayOfTurnInstruction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TurnInstruction" type="tns:TurnInstruction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTurnInstruction" nillable="true" type="tns:ArrayOfTurnInstruction" />
+  <xs:simpleType name="TurnInstruction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoTurn" />
+      <xs:enumeration value="GoStraight" />
+      <xs:enumeration value="TurnSlightRight" />
+      <xs:enumeration value="TurnRight" />
+      <xs:enumeration value="TurnSharpRight" />
+      <xs:enumeration value="UTurn" />
+      <xs:enumeration value="TurnSharpLeft" />
+      <xs:enumeration value="TurnLeft" />
+      <xs:enumeration value="TurnSlightLeft" />
+      <xs:enumeration value="ReachViaLocation" />
+      <xs:enumeration value="HeadOn" />
+      <xs:enumeration value="EnterRoundAbout" />
+      <xs:enumeration value="LeaveRoundAbout" />
+      <xs:enumeration value="StayOnRoundAbout" />
+      <xs:enumeration value="StartAtEndOfStreet" />
+      <xs:enumeration value="ReachedYourDestination" />
+      <xs:enumeration value="ChangeLaneRight" />
+      <xs:enumeration value="ChangeLaneLeft" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TurnInstruction" nillable="true" type="tns:TurnInstruction" />
+</xs:schema>

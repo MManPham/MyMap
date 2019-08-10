@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="BatchReverseGeocodingResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrDistrict" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrDistrictID" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrProvince" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrProvinceID" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrStreet" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrWard" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrWardID" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchReverseGeocodingResult" nillable="true" type="tns:BatchReverseGeocodingResult" />
+  <xs:complexType name="SubRegionNameCodesResult">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrName" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrSubCode" nillable="true" type="q9:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubRegionNameCodesResult" nillable="true" type="tns:SubRegionNameCodesResult" />
+  <xs:complexType name="FindShortestPathOrderResult">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Coors" nillable="true" type="q10:ArrayOfArrayOfdouble" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Indices" nillable="true" type="q11:ArrayOfint" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="InstructionDirs" nillable="true" type="q12:ArrayOfArrayOfint" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="InstructionDistances" nillable="true" type="q13:ArrayOfArrayOfdouble" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="InstructionNames" nillable="true" type="q14:ArrayOfArrayOfstring" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="RealPlaces" nillable="true" type="q15:ArrayOfdouble" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindShortestPathOrderResult" nillable="true" type="tns:FindShortestPathOrderResult" />
+  <xs:complexType name="ForecastTrackingGeoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ForcastSignIDs" nillable="true" type="q16:ArrayOfstring" />
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ForcastingDistance" nillable="true" type="q17:ArrayOfdouble" />
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Latitudes" nillable="true" type="q18:ArrayOfdouble" />
+      <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Longitudes" nillable="true" type="q19:ArrayOfdouble" />
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MaxSpeeds" nillable="true" type="q20:ArrayOfdouble" />
+      <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MinSpeeds" nillable="true" type="q21:ArrayOfdouble" />
+      <xs:element minOccurs="0" name="ProvinceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoadNames" nillable="true" type="q22:ArrayOfstring" />
+      <xs:element minOccurs="0" name="SnapX" type="xs:double" />
+      <xs:element minOccurs="0" name="SnapY" type="xs:double" />
+      <xs:element minOccurs="0" name="SpeedMax" type="xs:double" />
+      <xs:element minOccurs="0" name="SpeedMin" type="xs:double" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForecastTrackingGeoResult" nillable="true" type="tns:ForecastTrackingGeoResult" />
+  <xs:complexType name="TrackingInformationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:double" />
+      <xs:element minOccurs="0" name="MinSpeed" type="xs:double" />
+      <xs:element minOccurs="0" name="ProvinceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SnapX" type="xs:double" />
+      <xs:element minOccurs="0" name="SnapY" type="xs:double" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackingInformationResult" nillable="true" type="tns:TrackingInformationResult" />
+  <xs:complexType name="ShortestPathWithBarriersResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalTime" type="xs:double" />
+      <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Coors" nillable="true" type="q23:ArrayOfArrayOfdouble" />
+      <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Indices" nillable="true" type="q24:ArrayOfint" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InstructionDirs" nillable="true" type="q25:ArrayOfArrayOfint" />
+      <xs:element minOccurs="0" name="PathLength" type="xs:double" />
+      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RealPlaces" nillable="true" type="q26:ArrayOfdouble" />
+      <xs:element minOccurs="0" name="Script" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortestPathWithBarriersResult" nillable="true" type="tns:ShortestPathWithBarriersResult" />
+  <xs:complexType name="RoadSpeedResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MaxSpeeds" nillable="true" type="q27:ArrayOfdouble" />
+      <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MinSpeeds" nillable="true" type="q28:ArrayOfdouble" />
+      <xs:element minOccurs="0" name="ProvinceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SnapX" type="xs:double" />
+      <xs:element minOccurs="0" name="SnapY" type="xs:double" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoadSpeedResult" nillable="true" type="tns:RoadSpeedResult" />
+  <xs:complexType name="BatchGetRoadSpeedReult">
+    <xs:sequence>
+      <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MaxSpeeds" nillable="true" type="q29:ArrayOfdouble" />
+      <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MinSpeeds" nillable="true" type="q30:ArrayOfdouble" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchGetRoadSpeedReult" nillable="true" type="tns:BatchGetRoadSpeedReult" />
+</xs:schema>

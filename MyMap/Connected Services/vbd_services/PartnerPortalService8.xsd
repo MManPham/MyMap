@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vietbando.Web.Library" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vietbando.Web.Library" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ShortestPath">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Leg" nillable="true" type="tns:ArrayOfShortestPathLeg" />
+      <xs:element minOccurs="0" name="len" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortestPath" nillable="true" type="tns:ShortestPath" />
+  <xs:complexType name="ArrayOfShortestPathLeg">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShortestPathLeg" nillable="true" type="tns:ShortestPathLeg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShortestPathLeg" nillable="true" type="tns:ArrayOfShortestPathLeg" />
+  <xs:complexType name="ShortestPathLeg">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Step" nillable="true" type="tns:ArrayOfShortestPathLegStep" />
+      <xs:element minOccurs="0" name="endX" type="xs:double" />
+      <xs:element minOccurs="0" name="endY" type="xs:double" />
+      <xs:element minOccurs="0" name="found" type="xs:boolean" />
+      <xs:element minOccurs="0" name="len" type="xs:double" />
+      <xs:element minOccurs="0" name="startX" type="xs:double" />
+      <xs:element minOccurs="0" name="startY" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortestPathLeg" nillable="true" type="tns:ShortestPathLeg" />
+  <xs:complexType name="ArrayOfShortestPathLegStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShortestPathLegStep" nillable="true" type="tns:ShortestPathLegStep" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShortestPathLegStep" nillable="true" type="tns:ArrayOfShortestPathLegStep" />
+  <xs:complexType name="ShortestPathLegStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="X" type="xs:double" />
+      <xs:element minOccurs="0" name="Y" type="xs:double" />
+      <xs:element minOccurs="0" name="angle" type="xs:int" />
+      <xs:element minOccurs="0" name="dir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="len" type="xs:double" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="start" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortestPathLegStep" nillable="true" type="tns:ShortestPathLegStep" />
+</xs:schema>

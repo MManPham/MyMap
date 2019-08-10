@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PP.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PP.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Web.Library" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Request" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Response" />
+  <xs:complexType name="ReverseGeocodeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReverseGeocodeRequest" nillable="true" type="tns:ReverseGeocodeRequest" />
+  <xs:complexType name="ReverseGeocodeResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WardID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReverseGeocodeResult" nillable="true" type="tns:ReverseGeocodeResult" />
+  <xs:complexType name="BatchReverGeocodeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchReverGeocodeRequest" nillable="true" type="tns:BatchReverGeocodeRequest" />
+  <xs:complexType name="ArrayOfPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Point" nillable="true" type="tns:Point" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPoint" nillable="true" type="tns:ArrayOfPoint" />
+  <xs:complexType name="Point">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Point" nillable="true" type="tns:Point" />
+  <xs:complexType name="MBROfRegionResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bottom" type="xs:double" />
+      <xs:element minOccurs="0" name="Left" type="xs:double" />
+      <xs:element minOccurs="0" name="Top" type="xs:double" />
+      <xs:element minOccurs="0" name="right" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MBROfRegionResult" nillable="true" type="tns:MBROfRegionResult" />
+  <xs:complexType name="GetThumbnailOfRegionRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultColor" type="xs:int" />
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element minOccurs="0" name="ImgType" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionColor" nillable="true" type="tns:RegionColor" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetThumbnailOfRegionRequest" nillable="true" type="tns:GetThumbnailOfRegionRequest" />
+  <xs:complexType name="RegionColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BorderColor" type="xs:int" />
+      <xs:element minOccurs="0" name="BorderWidth" type="xs:int" />
+      <xs:element minOccurs="0" name="FillColor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionColor" nillable="true" type="tns:RegionColor" />
+  <xs:complexType name="VietBandoPOI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Building" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryCode" type="xs:int" />
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Floor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VietbandoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VietBandoPOI" nillable="true" type="tns:VietBandoPOI" />
+  <xs:complexType name="GetNearestObjectsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Limit" type="xs:int" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNearestObjectsRequest" nillable="true" type="tns:GetNearestObjectsRequest" />
+  <xs:complexType name="ArrayOfVietBandoPOI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VietBandoPOI" nillable="true" type="tns:VietBandoPOI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVietBandoPOI" nillable="true" type="tns:ArrayOfVietBandoPOI" />
+  <xs:complexType name="FindShortestPathRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlleyAvoidance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element minOccurs="0" name="TransportType" type="tns:TransportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindShortestPathRequest" nillable="true" type="tns:FindShortestPathRequest" />
+  <xs:simpleType name="TransportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Walk" />
+      <xs:enumeration value="Bike" />
+      <xs:enumeration value="Car" />
+      <xs:enumeration value="Truck" />
+      <xs:enumeration value="Emergency">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportType" nillable="true" type="tns:TransportType" />
+  <xs:complexType name="DirectionResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FullPath" nillable="true" type="q1:ArrayOfArrayOfArrayOfdouble" />
+      <xs:element minOccurs="0" name="PathLength" type="xs:double" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RealPlaces" nillable="true" type="q2:ArrayOfdouble" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Vietbando.Web.Library" minOccurs="0" name="ResultScript" nillable="true" type="q3:ShortestPath" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Segments" nillable="true" type="q4:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DirectionResult" nillable="true" type="tns:DirectionResult" />
+  <xs:complexType name="ViaRouteRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alternative" type="xs:int" />
+      <xs:element minOccurs="0" name="Distance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Duration" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Geometry" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Instructions" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Request" minOccurs="0" name="RouteCriteria" type="q5:RouteCriteria" />
+      <xs:element minOccurs="0" name="Uturn" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model" minOccurs="0" name="VehicleType" type="q6:VehicleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViaRouteRequest" nillable="true" type="tns:ViaRouteRequest" />
+  <xs:complexType name="ViaRouteResult">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Response" minOccurs="0" name="Routes" nillable="true" type="q7:ArrayOfRoute" />
+      <xs:element minOccurs="0" name="Via_Points" nillable="true" type="tns:ArrayOfPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViaRouteResult" nillable="true" type="tns:ViaRouteResult" />
+  <xs:complexType name="ForecastRoadsByTrafficSignRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Distance" type="xs:int" />
+      <xs:element minOccurs="0" name="Heading" type="xs:double" />
+      <xs:element minOccurs="0" name="Point" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+      <xs:element minOccurs="0" name="TransportType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForecastRoadsByTrafficSignRequest" nillable="true" type="tns:ForecastRoadsByTrafficSignRequest" />
+  <xs:complexType name="TrackingInformationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurPoint" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="PrePoint" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+      <xs:element minOccurs="0" name="TransportType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackingInformationRequest" nillable="true" type="tns:TrackingInformationRequest" />
+  <xs:complexType name="ShortestPathWithBarriersRequest">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Barriers" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DepartureTime" type="xs:double" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TimeRanges" nillable="true" type="q9:ArrayOfArrayOfdouble" />
+      <xs:element minOccurs="0" name="VehicleWeight" type="xs:double" />
+      <xs:element minOccurs="0" name="transportType" type="tns:TransportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortestPathWithBarriersRequest" nillable="true" type="tns:ShortestPathWithBarriersRequest" />
+  <xs:complexType name="SnapToStreetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SnapToStreetRequest" nillable="true" type="tns:SnapToStreetRequest" />
+  <xs:complexType name="GetDistancesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlleyAvoidance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Destinations" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element minOccurs="0" name="Sourses" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element minOccurs="0" name="TransportType" type="tns:TransportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDistancesRequest" nillable="true" type="tns:GetDistancesRequest" />
+  <xs:complexType name="GetDistancesOnPathsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlleyAvoidance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Destinations" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element minOccurs="0" name="IsReverse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="TransportType" type="tns:TransportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDistancesOnPathsRequest" nillable="true" type="tns:GetDistancesOnPathsRequest" />
+  <xs:complexType name="CheckPointInShapeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Point" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+      <xs:element minOccurs="0" name="Shape" nillable="true" type="tns:ArrayOfPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckPointInShapeRequest" nillable="true" type="tns:CheckPointInShapeRequest" />
+  <xs:complexType name="SearchAllRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCode" type="xs:int" />
+      <xs:element minOccurs="0" name="IsOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lx" type="xs:double" />
+      <xs:element minOccurs="0" name="Ly" type="xs:double" />
+      <xs:element minOccurs="0" name="Page" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Rx" type="xs:double" />
+      <xs:element minOccurs="0" name="Ry" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchAllRequest" nillable="true" type="tns:SearchAllRequest" />
+  <xs:complexType name="SearchNearByRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Page" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Point" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="Radius" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchNearByRequest" nillable="true" type="tns:SearchNearByRequest" />
+  <xs:complexType name="AutoSuggestSearchRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutoSuggestSearchRequest" nillable="true" type="tns:AutoSuggestSearchRequest" />
+  <xs:complexType name="GeoCodingRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoCodingRequest" nillable="true" type="tns:GeoCodingRequest" />
+  <xs:complexType name="GeoCodingReponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PercentageMatch" type="xs:double" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:VietBandoPOI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoCodingReponse" nillable="true" type="tns:GeoCodingReponse" />
+  <xs:complexType name="GetAllGroupCategoriesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsGetCategory" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllGroupCategoriesRequest" nillable="true" type="tns:GetAllGroupCategoriesRequest" />
+  <xs:complexType name="ArrayOfGroupCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupCategory" nillable="true" type="tns:GroupCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupCategory" nillable="true" type="tns:ArrayOfGroupCategory" />
+  <xs:complexType name="GroupCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:ArrayOfCategory" />
+      <xs:element minOccurs="0" name="GroupCode" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupV" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupCategory" nillable="true" type="tns:GroupCategory" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCode" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupCode" type="xs:int" />
+      <xs:element minOccurs="0" name="NameE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameV" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="GetCategoriesInGroupRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCategoriesInGroupRequest" nillable="true" type="tns:GetCategoriesInGroupRequest" />
+  <xs:complexType name="GetCategoryDetailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCategoryDetailRequest" nillable="true" type="tns:GetCategoryDetailRequest" />
+  <xs:complexType name="GetGroupCategoryDetailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupCode" type="xs:int" />
+      <xs:element minOccurs="0" name="IsGetCategory" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGroupCategoryDetailRequest" nillable="true" type="tns:GetGroupCategoryDetailRequest" />
+  <xs:complexType name="GetRoadSpeedRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Heading" type="xs:double" />
+      <xs:element minOccurs="0" name="Point" nillable="true" type="tns:Point" />
+      <xs:element minOccurs="0" name="Radius" type="xs:int" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetRoadSpeedRequest" nillable="true" type="tns:GetRoadSpeedRequest" />
+  <xs:complexType name="BatchGetRoadSpeedRequest">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headings" nillable="true" type="q10:ArrayOfdouble" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPoint" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Speeds" nillable="true" type="q11:ArrayOfdouble" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TransportTypes" nillable="true" type="q12:ArrayOfint" />
+      <xs:element minOccurs="0" name="radius" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchGetRoadSpeedRequest" nillable="true" type="tns:BatchGetRoadSpeedRequest" />
+</xs:schema>

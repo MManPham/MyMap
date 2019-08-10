@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PartnerPortalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IPartnerPortalSoapService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Web.Library" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Request" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model" />
+      <xsd:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Response" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPartnerPortalRestService_ReverseGeoCoding_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoCoding_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_ReverseGeoCoding_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoCoding_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_BatchReverseGeoCoding_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchReverseGeoCoding_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_BatchReverseGeoCoding_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchReverseGeoCoding_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCentroidOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentroidOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCentroidOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentroidOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetMBROfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMBROfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetMBROfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMBROfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetNameOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetNameOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionCodesOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionCodesOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionCodesOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionCodesOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionNamesOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNamesOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionNamesOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNamesOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionNameCodesOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNameCodesOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetSubRegionNameCodesOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNameCodesOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetThumbnailOfRegion_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThumbnailOfRegion_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetThumbnailOfRegion_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThumbnailOfRegion_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_WhatHere_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:WhatHere_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_WhatHere_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WhatHere_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetNearestObjects_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestObjects_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetNearestObjects_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestObjects_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestPath_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPath_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestPath_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPath_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_ViaRoute_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViaRoute_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_ViaRoute_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViaRoute_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestPathOrderFull_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPathOrderFull_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestPathOrderFull_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPathOrderFull_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_ForecastRoadsByTrafficSign_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForecastRoadsByTrafficSign_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_ForecastRoadsByTrafficSign_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForecastRoadsByTrafficSign_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetTrackingInformation_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingInformation_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetTrackingInformation_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingInformation_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestWithBarriers_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestWithBarriers_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_FindShortestWithBarriers_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestWithBarriers_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SnapToStreet_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SnapToStreet_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SnapToStreet_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SnapToStreet_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetDistances_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistances_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetDistances_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistances_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetDistancesOnPaths_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistancesOnPaths_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetDistancesOnPaths_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistancesOnPaths_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_CheckPointInShape_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPointInShape_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_CheckPointInShape_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPointInShape_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SearchAll_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAll_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SearchAll_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAll_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SearchNearBy_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchNearBy_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_SearchNearBy_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchNearBy_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_AutoSuggestSearch_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSuggestSearch_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_AutoSuggestSearch_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSuggestSearch_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GeoCoding_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeoCoding_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GeoCoding_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeoCoding_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetAllGroupCategories_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupCategories_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetAllGroupCategories_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupCategories_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCategoriesInGroup_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesInGroup_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCategoriesInGroup_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesInGroup_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCategoryDetail_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryDetail_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetCategoryDetail_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryDetail_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetGroupCategoryDetail_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupCategoryDetail_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetGroupCategoryDetail_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupCategoryDetail_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetRoadSpeed_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoadSpeed_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_GetRoadSpeed_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoadSpeed_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_BatchGetRoadSpeed_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchGetRoadSpeed_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalRestService_BatchGetRoadSpeed_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchGetRoadSpeed_RestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ReverseGeoCoding_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoCoding" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ReverseGeoCoding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoCodingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_BatchReverseGeoCoding_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchReverseGeoCoding" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_BatchReverseGeoCoding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchReverseGeoCodingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCentroidOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentroidOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCentroidOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCentroidOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetMBROfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMBROfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetMBROfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMBROfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetNameOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetNameOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionCodesOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionCodesOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionCodesOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionCodesOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionNamesOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNamesOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionNamesOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNamesOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionNameCodesOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNameCodesOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetSubRegionNameCodesOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubRegionNameCodesOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetThumbnailOfRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThumbnailOfRegion" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetThumbnailOfRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThumbnailOfRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_WhatHere_InputMessage">
+    <wsdl:part name="parameters" element="tns:WhatHere" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_WhatHere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WhatHereResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetNearestObjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestObjects" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetNearestObjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPath" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ViaRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViaRoute" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ViaRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViaRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestPathOrderFull_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPathOrderFull" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestPathOrderFull_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestPathOrderFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestWithBarriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestWithBarriers" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_FindShortestWithBarriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindShortestWithBarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SnapToStreet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SnapToStreet" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SnapToStreet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SnapToStreetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetDistances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistances" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetDistances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetDistancesOnPaths_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistancesOnPaths" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetDistancesOnPaths_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistancesOnPathsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_CheckPointInShape_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPointInShape" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_CheckPointInShape_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPointInShapeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_AutoSuggestSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSuggestSearch" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_AutoSuggestSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSuggestSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SearchNearBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchNearBy" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SearchNearBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchNearByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GeoCoding_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeoCoding" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GeoCoding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeoCodingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SearchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAll" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_SearchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetAllGroupCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupCategories" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetAllGroupCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCategoriesInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCategoriesInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCategoryDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetCategoryDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetGroupCategoryDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupCategoryDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetGroupCategoryDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupCategoryDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetRoadSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoadSpeed" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetRoadSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoadSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_BatchGetRoadSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchGetRoadSpeed" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_BatchGetRoadSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchGetRoadSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ForecastRoadsByTrafficSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForecastRoadsByTrafficSign" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_ForecastRoadsByTrafficSign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForecastRoadsByTrafficSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetTrackingInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingInformation" />
+  </wsdl:message>
+  <wsdl:message name="IPartnerPortalSoapService_GetTrackingInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPartnerPortalRestService">
+    <wsdl:operation name="ReverseGeoCoding_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ReverseGeoCoding_Rest" message="tns:IPartnerPortalRestService_ReverseGeoCoding_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ReverseGeoCoding_RestResponse" message="tns:IPartnerPortalRestService_ReverseGeoCoding_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchReverseGeoCoding_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/BatchReverseGeoCoding_Rest" message="tns:IPartnerPortalRestService_BatchReverseGeoCoding_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/BatchReverseGeoCoding_RestResponse" message="tns:IPartnerPortalRestService_BatchReverseGeoCoding_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentroidOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCentroidOfRegion_Rest" message="tns:IPartnerPortalRestService_GetCentroidOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCentroidOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetCentroidOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMBROfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetMBROfRegion_Rest" message="tns:IPartnerPortalRestService_GetMBROfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetMBROfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetMBROfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNameOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetNameOfRegion_Rest" message="tns:IPartnerPortalRestService_GetNameOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetNameOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetNameOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionCodesOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionCodesOfRegion_Rest" message="tns:IPartnerPortalRestService_GetSubRegionCodesOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionCodesOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetSubRegionCodesOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNamesOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionNamesOfRegion_Rest" message="tns:IPartnerPortalRestService_GetSubRegionNamesOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionNamesOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetSubRegionNamesOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNameCodesOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionNameCodesOfRegion_Rest" message="tns:IPartnerPortalRestService_GetSubRegionNameCodesOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetSubRegionNameCodesOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetSubRegionNameCodesOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailOfRegion_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetThumbnailOfRegion_Rest" message="tns:IPartnerPortalRestService_GetThumbnailOfRegion_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetThumbnailOfRegion_RestResponse" message="tns:IPartnerPortalRestService_GetThumbnailOfRegion_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WhatHere_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/WhatHere_Rest" message="tns:IPartnerPortalRestService_WhatHere_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/WhatHere_RestResponse" message="tns:IPartnerPortalRestService_WhatHere_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestObjects_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetNearestObjects_Rest" message="tns:IPartnerPortalRestService_GetNearestObjects_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetNearestObjects_RestResponse" message="tns:IPartnerPortalRestService_GetNearestObjects_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPath_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestPath_Rest" message="tns:IPartnerPortalRestService_FindShortestPath_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestPath_RestResponse" message="tns:IPartnerPortalRestService_FindShortestPath_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViaRoute_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ViaRoute_Rest" message="tns:IPartnerPortalRestService_ViaRoute_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ViaRoute_RestResponse" message="tns:IPartnerPortalRestService_ViaRoute_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPathOrderFull_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestPathOrderFull_Rest" message="tns:IPartnerPortalRestService_FindShortestPathOrderFull_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestPathOrderFull_RestResponse" message="tns:IPartnerPortalRestService_FindShortestPathOrderFull_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForecastRoadsByTrafficSign_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ForecastRoadsByTrafficSign_Rest" message="tns:IPartnerPortalRestService_ForecastRoadsByTrafficSign_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/ForecastRoadsByTrafficSign_RestResponse" message="tns:IPartnerPortalRestService_ForecastRoadsByTrafficSign_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingInformation_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetTrackingInformation_Rest" message="tns:IPartnerPortalRestService_GetTrackingInformation_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetTrackingInformation_RestResponse" message="tns:IPartnerPortalRestService_GetTrackingInformation_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestWithBarriers_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestWithBarriers_Rest" message="tns:IPartnerPortalRestService_FindShortestWithBarriers_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/FindShortestWithBarriers_RestResponse" message="tns:IPartnerPortalRestService_FindShortestWithBarriers_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SnapToStreet_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SnapToStreet_Rest" message="tns:IPartnerPortalRestService_SnapToStreet_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SnapToStreet_RestResponse" message="tns:IPartnerPortalRestService_SnapToStreet_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistances_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetDistances_Rest" message="tns:IPartnerPortalRestService_GetDistances_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetDistances_RestResponse" message="tns:IPartnerPortalRestService_GetDistances_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistancesOnPaths_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetDistancesOnPaths_Rest" message="tns:IPartnerPortalRestService_GetDistancesOnPaths_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetDistancesOnPaths_RestResponse" message="tns:IPartnerPortalRestService_GetDistancesOnPaths_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointInShape_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/CheckPointInShape_Rest" message="tns:IPartnerPortalRestService_CheckPointInShape_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/CheckPointInShape_RestResponse" message="tns:IPartnerPortalRestService_CheckPointInShape_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAll_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SearchAll_Rest" message="tns:IPartnerPortalRestService_SearchAll_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SearchAll_RestResponse" message="tns:IPartnerPortalRestService_SearchAll_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNearBy_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SearchNearBy_Rest" message="tns:IPartnerPortalRestService_SearchNearBy_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/SearchNearBy_RestResponse" message="tns:IPartnerPortalRestService_SearchNearBy_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoSuggestSearch_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/AutoSuggestSearch_Rest" message="tns:IPartnerPortalRestService_AutoSuggestSearch_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/AutoSuggestSearch_RestResponse" message="tns:IPartnerPortalRestService_AutoSuggestSearch_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeoCoding_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GeoCoding_Rest" message="tns:IPartnerPortalRestService_GeoCoding_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GeoCoding_RestResponse" message="tns:IPartnerPortalRestService_GeoCoding_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupCategories_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetAllGroupCategories_Rest" message="tns:IPartnerPortalRestService_GetAllGroupCategories_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetAllGroupCategories_RestResponse" message="tns:IPartnerPortalRestService_GetAllGroupCategories_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesInGroup_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCategoriesInGroup_Rest" message="tns:IPartnerPortalRestService_GetCategoriesInGroup_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCategoriesInGroup_RestResponse" message="tns:IPartnerPortalRestService_GetCategoriesInGroup_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryDetail_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCategoryDetail_Rest" message="tns:IPartnerPortalRestService_GetCategoryDetail_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetCategoryDetail_RestResponse" message="tns:IPartnerPortalRestService_GetCategoryDetail_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupCategoryDetail_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetGroupCategoryDetail_Rest" message="tns:IPartnerPortalRestService_GetGroupCategoryDetail_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetGroupCategoryDetail_RestResponse" message="tns:IPartnerPortalRestService_GetGroupCategoryDetail_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadSpeed_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetRoadSpeed_Rest" message="tns:IPartnerPortalRestService_GetRoadSpeed_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/GetRoadSpeed_RestResponse" message="tns:IPartnerPortalRestService_GetRoadSpeed_Rest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchGetRoadSpeed_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalRestService/BatchGetRoadSpeed_Rest" message="tns:IPartnerPortalRestService_BatchGetRoadSpeed_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalRestService/BatchGetRoadSpeed_RestResponse" message="tns:IPartnerPortalRestService_BatchGetRoadSpeed_Rest_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IPartnerPortalSoapService">
+    <wsdl:operation name="ReverseGeoCoding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ReverseGeoCoding" message="tns:IPartnerPortalSoapService_ReverseGeoCoding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ReverseGeoCodingResponse" message="tns:IPartnerPortalSoapService_ReverseGeoCoding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchReverseGeoCoding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/BatchReverseGeoCoding" message="tns:IPartnerPortalSoapService_BatchReverseGeoCoding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/BatchReverseGeoCodingResponse" message="tns:IPartnerPortalSoapService_BatchReverseGeoCoding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentroidOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCentroidOfRegion" message="tns:IPartnerPortalSoapService_GetCentroidOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCentroidOfRegionResponse" message="tns:IPartnerPortalSoapService_GetCentroidOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMBROfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetMBROfRegion" message="tns:IPartnerPortalSoapService_GetMBROfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetMBROfRegionResponse" message="tns:IPartnerPortalSoapService_GetMBROfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNameOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetNameOfRegion" message="tns:IPartnerPortalSoapService_GetNameOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetNameOfRegionResponse" message="tns:IPartnerPortalSoapService_GetNameOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionCodesOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionCodesOfRegion" message="tns:IPartnerPortalSoapService_GetSubRegionCodesOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionCodesOfRegionResponse" message="tns:IPartnerPortalSoapService_GetSubRegionCodesOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNamesOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNamesOfRegion" message="tns:IPartnerPortalSoapService_GetSubRegionNamesOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNamesOfRegionResponse" message="tns:IPartnerPortalSoapService_GetSubRegionNamesOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNameCodesOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNameCodesOfRegion" message="tns:IPartnerPortalSoapService_GetSubRegionNameCodesOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNameCodesOfRegionResponse" message="tns:IPartnerPortalSoapService_GetSubRegionNameCodesOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailOfRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetThumbnailOfRegion" message="tns:IPartnerPortalSoapService_GetThumbnailOfRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetThumbnailOfRegionResponse" message="tns:IPartnerPortalSoapService_GetThumbnailOfRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WhatHere">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/WhatHere" message="tns:IPartnerPortalSoapService_WhatHere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/WhatHereResponse" message="tns:IPartnerPortalSoapService_WhatHere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestObjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetNearestObjects" message="tns:IPartnerPortalSoapService_GetNearestObjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetNearestObjectsResponse" message="tns:IPartnerPortalSoapService_GetNearestObjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestPath" message="tns:IPartnerPortalSoapService_FindShortestPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestPathResponse" message="tns:IPartnerPortalSoapService_FindShortestPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViaRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ViaRoute" message="tns:IPartnerPortalSoapService_ViaRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ViaRouteResponse" message="tns:IPartnerPortalSoapService_ViaRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPathOrderFull">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestPathOrderFull" message="tns:IPartnerPortalSoapService_FindShortestPathOrderFull_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestPathOrderFullResponse" message="tns:IPartnerPortalSoapService_FindShortestPathOrderFull_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestWithBarriers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestWithBarriers" message="tns:IPartnerPortalSoapService_FindShortestWithBarriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/FindShortestWithBarriersResponse" message="tns:IPartnerPortalSoapService_FindShortestWithBarriers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SnapToStreet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SnapToStreet" message="tns:IPartnerPortalSoapService_SnapToStreet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SnapToStreetResponse" message="tns:IPartnerPortalSoapService_SnapToStreet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetDistances" message="tns:IPartnerPortalSoapService_GetDistances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetDistancesResponse" message="tns:IPartnerPortalSoapService_GetDistances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistancesOnPaths">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetDistancesOnPaths" message="tns:IPartnerPortalSoapService_GetDistancesOnPaths_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetDistancesOnPathsResponse" message="tns:IPartnerPortalSoapService_GetDistancesOnPaths_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointInShape">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/CheckPointInShape" message="tns:IPartnerPortalSoapService_CheckPointInShape_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/CheckPointInShapeResponse" message="tns:IPartnerPortalSoapService_CheckPointInShape_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoSuggestSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/AutoSuggestSearch" message="tns:IPartnerPortalSoapService_AutoSuggestSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/AutoSuggestSearchResponse" message="tns:IPartnerPortalSoapService_AutoSuggestSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNearBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SearchNearBy" message="tns:IPartnerPortalSoapService_SearchNearBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SearchNearByResponse" message="tns:IPartnerPortalSoapService_SearchNearBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeoCoding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GeoCoding" message="tns:IPartnerPortalSoapService_GeoCoding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GeoCodingResponse" message="tns:IPartnerPortalSoapService_GeoCoding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SearchAll" message="tns:IPartnerPortalSoapService_SearchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/SearchAllResponse" message="tns:IPartnerPortalSoapService_SearchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetAllGroupCategories" message="tns:IPartnerPortalSoapService_GetAllGroupCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetAllGroupCategoriesResponse" message="tns:IPartnerPortalSoapService_GetAllGroupCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCategoriesInGroup" message="tns:IPartnerPortalSoapService_GetCategoriesInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCategoriesInGroupResponse" message="tns:IPartnerPortalSoapService_GetCategoriesInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCategoryDetail" message="tns:IPartnerPortalSoapService_GetCategoryDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetCategoryDetailResponse" message="tns:IPartnerPortalSoapService_GetCategoryDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupCategoryDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetGroupCategoryDetail" message="tns:IPartnerPortalSoapService_GetGroupCategoryDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetGroupCategoryDetailResponse" message="tns:IPartnerPortalSoapService_GetGroupCategoryDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetRoadSpeed" message="tns:IPartnerPortalSoapService_GetRoadSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetRoadSpeedResponse" message="tns:IPartnerPortalSoapService_GetRoadSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchGetRoadSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/BatchGetRoadSpeed" message="tns:IPartnerPortalSoapService_BatchGetRoadSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/BatchGetRoadSpeedResponse" message="tns:IPartnerPortalSoapService_BatchGetRoadSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForecastRoadsByTrafficSign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ForecastRoadsByTrafficSign" message="tns:IPartnerPortalSoapService_ForecastRoadsByTrafficSign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/ForecastRoadsByTrafficSignResponse" message="tns:IPartnerPortalSoapService_ForecastRoadsByTrafficSign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetTrackingInformation" message="tns:IPartnerPortalSoapService_GetTrackingInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPartnerPortalSoapService/GetTrackingInformationResponse" message="tns:IPartnerPortalSoapService_GetTrackingInformation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPartnerPortalSoapService" type="tns:IPartnerPortalSoapService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IPartnerPortalSoapService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReverseGeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ReverseGeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchReverseGeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/BatchReverseGeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentroidOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCentroidOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMBROfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetMBROfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNameOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetNameOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionCodesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionCodesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNamesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNamesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNameCodesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNameCodesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetThumbnailOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WhatHere">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/WhatHere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestObjects">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetNearestObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPath">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViaRoute">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ViaRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPathOrderFull">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestPathOrderFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestWithBarriers">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestWithBarriers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SnapToStreet">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SnapToStreet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistances">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetDistances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistancesOnPaths">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetDistancesOnPaths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointInShape">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/CheckPointInShape" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoSuggestSearch">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/AutoSuggestSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNearBy">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SearchNearBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAll">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SearchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupCategories">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetAllGroupCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesInGroup">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCategoriesInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryDetail">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupCategoryDetail">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetGroupCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadSpeed">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetRoadSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchGetRoadSpeed">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/BatchGetRoadSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForecastRoadsByTrafficSign">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ForecastRoadsByTrafficSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingInformation">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetTrackingInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IPartnerPortalSoapService1" type="tns:IPartnerPortalSoapService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReverseGeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ReverseGeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchReverseGeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/BatchReverseGeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentroidOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCentroidOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMBROfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetMBROfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNameOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetNameOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionCodesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionCodesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNamesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNamesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubRegionNameCodesOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetSubRegionNameCodesOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailOfRegion">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetThumbnailOfRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WhatHere">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/WhatHere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestObjects">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetNearestObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPath">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViaRoute">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ViaRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestPathOrderFull">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestPathOrderFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindShortestWithBarriers">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/FindShortestWithBarriers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SnapToStreet">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SnapToStreet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistances">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetDistances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistancesOnPaths">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetDistancesOnPaths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointInShape">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/CheckPointInShape" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoSuggestSearch">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/AutoSuggestSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNearBy">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SearchNearBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeoCoding">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GeoCoding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAll">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/SearchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupCategories">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetAllGroupCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesInGroup">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCategoriesInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryDetail">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupCategoryDetail">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetGroupCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadSpeed">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetRoadSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchGetRoadSpeed">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/BatchGetRoadSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForecastRoadsByTrafficSign">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/ForecastRoadsByTrafficSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingInformation">
+      <soap:operation soapAction="http://tempuri.org/IPartnerPortalSoapService/GetTrackingInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartnerPortalService">
+    <wsdl:port name="BasicHttpBinding_IPartnerPortalSoapService" binding="tns:BasicHttpBinding_IPartnerPortalSoapService">
+      <soap:address location="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IPartnerPortalSoapService1" binding="tns:BasicHttpBinding_IPartnerPortalSoapService1">
+      <soap:address location="http://61web:81/V3/Service/PartnerPortalService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

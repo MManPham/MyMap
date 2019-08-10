@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c69bfff4-5aac-4b1a-a6d5-667ec1baef7c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartnerPortalService.wsdl" MetadataType="Wsdl" ID="53d04994-ab64-46ea-b104-f1a159159d66" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?wsdl" />
+    <MetadataFile FileName="PartnerPortalService.xsd" MetadataType="Schema" ID="0dd30d17-f89d-4483-8502-94a2e76d2c7b" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PartnerPortalService1.xsd" MetadataType="Schema" ID="1b3b7fa3-9fa9-48b3-81e4-f155dec98450" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd9" />
+    <MetadataFile FileName="PartnerPortalService2.xsd" MetadataType="Schema" ID="095fe532-96f4-4785-b70c-b16b0c103829" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PartnerPortalService3.xsd" MetadataType="Schema" ID="aa898daf-2a62-486c-895b-0fa69dd93939" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartnerPortalService4.xsd" MetadataType="Schema" ID="3f4e99c3-68c1-4186-9bba-035eebec1584" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PartnerPortalService5.xsd" MetadataType="Schema" ID="c928136f-b394-46ff-95eb-7d0613f697db" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartnerPortalService6.xsd" MetadataType="Schema" ID="0a836eff-f1b5-45a7-ae08-be3ec6309980" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PartnerPortalService7.xsd" MetadataType="Schema" ID="33ac6bb5-3bec-482a-898d-4efe2a7efbf0" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PartnerPortalService8.xsd" MetadataType="Schema" ID="65fce8a0-73f7-44e3-95de-6947757fa1f9" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PartnerPortalService9.xsd" MetadataType="Schema" ID="c7da6674-660f-426d-ab1b-8def5e0389f9" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PartnerPortalService.disco" MetadataType="Disco" ID="d520ce3e-f0ed-4024-96ff-6ae2689fdc04" SourceId="1" SourceUrl="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

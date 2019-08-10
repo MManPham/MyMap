@@ -1,0 +1,163 @@
+﻿@model GetStartAspNet.Models.FindDirectsModel
+@{
+    ViewBag.Title = "Find Directs Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #search_cover {
+        padding: 10px;
+        justify-content: flex-end;
+        display: flex;
+    }
+
+    #search_container {
+        background: white;
+        z-index: 2;
+        box-shadow: 10px 20px 40px;
+        margin-right: 15px;
+        padding: 0;
+        width: 30%;
+    }
+
+    #findDirecBox {
+        padding: 10px;
+        padding-top: 5px;
+        display: flex
+    }
+
+    .search_box_cover {
+        margin: 10px 0;
+        display: flex;
+    }
+
+    .search_box {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid gray;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn_startPoitn {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn_endPoitn {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    .screenShot {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    .iconScreenShot {
+        font-size: 15px;
+    }
+
+    .directs_btn {
+        border: 0px;
+    }
+
+    #result_search {
+        background: white;
+        border-radius: 10px;
+        padding: 10px 0;
+    }
+
+    .list-group {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .list-group-item {
+        display: flex;
+        align-content: center;
+        padding: 12px 15px;
+        border: 0;
+        cursor: pointer;
+        justify-content: space-between
+    }
+
+    .list-group :hover {
+        background-color: lightyellow;
+    }
+
+    .namePoint {
+        font-weight: bold;
+    }
+
+    .addressPoint {
+        font-size: small;
+        padding-left: 1px;
+    }
+
+    .pointContent {
+        border: 0;
+        flex: 7;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 2px;
+    }
+
+    #iconPointMarker {
+        flex: 1;
+        font-size: 25px;
+        align-items: center;
+        margin: auto;
+        color: lightcoral
+    }
+</style>
+
+<div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
+
+    <div id="search_cover" class="row">
+        <div class="col-xs-6 col-md-4" id="search_container">
+            <div id="findDirecBox" >
+                <div style="flex:0.9">
+                    <div id="startPointCover" class="search_box_cover input-group">
+                        <button id="screenShotStart" class="btn btn-default screenShot"><i class="iconScreenShot glyphicon glyphicon-screenshot"></i></button>
+                        @Html.EditorFor(model => model.nameStartPoint, new { htmlAttributes = new { id = "seachStartPoint", @class = "search_box form-control border-0", placeholder = "Choose starting point" } })
+                        <button id="search_btn_startPoitn" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
+                        <div class='lat hidden'></div>
+                        <div class='lng hidden'></div>
+
+                    </div>
+                    <div id="endPointCover" class="search_box_cover input-group">
+                        <button id="screenShotEnd" class="btn btn-default screenShot"><i class="iconScreenShot glyphicon glyphicon-screenshot"></i></button>
+                        @Html.EditorFor(model => model.nameEndPoint, new { htmlAttributes = new { id = "seachEndPoint", @class = "search_box form-control border-0", placeholder = "Choose ending point" } })
+                        <button id="search_btn_endPoitn" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
+                        <div class='lat hidden'></div>
+                        <div class='lng hidden'></div>
+
+                    </div>
+                </div>
+
+                <div style="justify-content:center; align-items:center;display:flex;flex:0.2">
+                    <button class="btn btn-default btn-lg" type="submit" onclick="OnSubmitFindDirects(this)">
+                        <i class="glyphicon glyphicon-menu-right"></i>
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div id="result_search_view" class="hidden">
+                <hr style="border:1px solid lightcoral; margin:5px 0 0 0" />
+                <div class="list-group" id="list-point">
+                    <div id="result_search">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/FindDirectsPage.js"></script>

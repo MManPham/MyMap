@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://developers.vietbando.com/V2/Scripts/vietbandomapsapi.js?key=0f2518af-2e71-447c-88e0-6aec6bf7581f"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: auto;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("My Map", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Seach Direct", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Find Directs", "FindDirects", "Home")</li>
+                    <li>@Html.ActionLink("My Direction", "MyDirection", "Home")</li>
+                </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (User.Identity.Name != null)
+                            {
+                                <li><a href="#">@User.Identity.Name</a></li>
+                            }
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                        </ul>
+                    }
+
+                }
+
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <script type="text/javascript" src="/ajaxpro/prototype.ashx"></script>
+
+    <script type="text/javascript" src="/ajaxpro/core.ashx"></script>
+
+    <script type="text/javascript" src="/ajaxpro/converter.ashx"></script>
+    <script type="text/javascript" src="~/ajaxpro/MyMap.Library.Ajax.MongoAjax,MyMap.Library.ashx"></script>
+    <script src="~/Scripts/myMap.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+  <xs:import schemaLocation="https://developers.vietbando.com/V3/Service/PartnerPortalService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="SingleReverseGeocodeResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ReverseGeocodeResult" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q1:ReverseGeocodeResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleReverseGeocodeResult" nillable="true" type="tns:SingleReverseGeocodeResult" />
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" nillable="true" type="tns:Error" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResponseTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Response" nillable="true" type="tns:Response" />
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExceptionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="SingleBatchReverseGeocodingResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BatchReverseGeocodingResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q2:BatchReverseGeocodingResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleBatchReverseGeocodingResult" nillable="true" type="tns:SingleBatchReverseGeocodingResult" />
+  <xs:complexType name="SinglePoint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Point" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q3:Point" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SinglePoint" nillable="true" type="tns:SinglePoint" />
+  <xs:complexType name="SingleMBROfRegionResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MBROfRegionResult" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q4:MBROfRegionResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleMBROfRegionResult" nillable="true" type="tns:SingleMBROfRegionResult" />
+  <xs:complexType name="Singlestring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Singlestring" nillable="true" type="tns:Singlestring" />
+  <xs:complexType name="SingleArrayOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfstring" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q5:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleArrayOfstring" nillable="true" type="tns:SingleArrayOfstring" />
+  <xs:complexType name="SingleSubRegionNameCodesResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SubRegionNameCodesResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q6:SubRegionNameCodesResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleSubRegionNameCodesResult" nillable="true" type="tns:SingleSubRegionNameCodesResult" />
+  <xs:complexType name="Singlebase64Binary">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="base64Binary" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Singlebase64Binary" nillable="true" type="tns:Singlebase64Binary" />
+  <xs:complexType name="SingleVietBandoPOI">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="VietBandoPOI" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q7:VietBandoPOI" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleVietBandoPOI" nillable="true" type="tns:SingleVietBandoPOI" />
+  <xs:complexType name="MultipleVietBandoPOI">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Multiple{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="VietBandoPOI" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasMoreItem" type="xs:boolean" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="List" nillable="true" type="q8:ArrayOfVietBandoPOI" />
+          <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MultipleVietBandoPOI" nillable="true" type="tns:MultipleVietBandoPOI" />
+  <xs:complexType name="SingleDirectionResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DirectionResult" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q9:DirectionResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleDirectionResult" nillable="true" type="tns:SingleDirectionResult" />
+  <xs:complexType name="SingleViaRouteResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ViaRouteResult" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q10:ViaRouteResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleViaRouteResult" nillable="true" type="tns:SingleViaRouteResult" />
+  <xs:complexType name="SingleFindShortestPathOrderResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FindShortestPathOrderResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q11:FindShortestPathOrderResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleFindShortestPathOrderResult" nillable="true" type="tns:SingleFindShortestPathOrderResult" />
+  <xs:complexType name="SingleForecastTrackingGeoResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ForecastTrackingGeoResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q12:ForecastTrackingGeoResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleForecastTrackingGeoResult" nillable="true" type="tns:SingleForecastTrackingGeoResult" />
+  <xs:complexType name="SingleTrackingInformationResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TrackingInformationResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q13:TrackingInformationResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleTrackingInformationResult" nillable="true" type="tns:SingleTrackingInformationResult" />
+  <xs:complexType name="SingleShortestPathWithBarriersResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ShortestPathWithBarriersResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q14:ShortestPathWithBarriersResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleShortestPathWithBarriersResult" nillable="true" type="tns:SingleShortestPathWithBarriersResult" />
+  <xs:complexType name="SingleArrayOfPoint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPoint" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q15:ArrayOfPoint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleArrayOfPoint" nillable="true" type="tns:SingleArrayOfPoint" />
+  <xs:complexType name="SingleArrayOfArrayOfdouble">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfArrayOfdouble" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q16:ArrayOfArrayOfdouble" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleArrayOfArrayOfdouble" nillable="true" type="tns:SingleArrayOfArrayOfdouble" />
+  <xs:complexType name="SingleArrayOfdouble">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfdouble" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q17:ArrayOfdouble" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleArrayOfdouble" nillable="true" type="tns:SingleArrayOfdouble" />
+  <xs:complexType name="Singleboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Singleboolean" nillable="true" type="tns:Singleboolean" />
+  <xs:complexType name="Multiplestring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Multiple{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasMoreItem" type="xs:boolean" />
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="List" nillable="true" type="q18:ArrayOfstring" />
+          <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Multiplestring" nillable="true" type="tns:Multiplestring" />
+  <xs:complexType name="SingleGeoCodingReponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GeoCodingReponse" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q19:GeoCodingReponse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleGeoCodingReponse" nillable="true" type="tns:SingleGeoCodingReponse" />
+  <xs:complexType name="MultipleGroupCategory">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Multiple{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GroupCategory" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasMoreItem" type="xs:boolean" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="List" nillable="true" type="q20:ArrayOfGroupCategory" />
+          <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MultipleGroupCategory" nillable="true" type="tns:MultipleGroupCategory" />
+  <xs:complexType name="MultipleCategory">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Multiple{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Category" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasMoreItem" type="xs:boolean" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="List" nillable="true" type="q21:ArrayOfCategory" />
+          <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MultipleCategory" nillable="true" type="tns:MultipleCategory" />
+  <xs:complexType name="SingleCategory">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Category" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q22:Category" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleCategory" nillable="true" type="tns:SingleCategory" />
+  <xs:complexType name="SingleGroupCategory">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GroupCategory" Namespace="http://schemas.datacontract.org/2004/07/PP.Services" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PP.Services" minOccurs="0" name="Value" nillable="true" type="q23:GroupCategory" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleGroupCategory" nillable="true" type="tns:SingleGroupCategory" />
+  <xs:complexType name="SingleRoadSpeedResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="RoadSpeedResult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q24:RoadSpeedResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleRoadSpeedResult" nillable="true" type="tns:SingleRoadSpeedResult" />
+  <xs:complexType name="SingleBatchGetRoadSpeedReult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="Single{0}" Namespace="http://schemas.datacontract.org/2004/07/Vietbando.MessageType" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BatchGetRoadSpeedReult" Namespace="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PartnerPortalStructures" minOccurs="0" name="Value" nillable="true" type="q25:BatchGetRoadSpeedReult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleBatchGetRoadSpeedReult" nillable="true" type="tns:SingleBatchGetRoadSpeedReult" />
+</xs:schema>

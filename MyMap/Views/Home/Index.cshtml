@@ -1,0 +1,139 @@
+﻿@model GetStartAspNet.Models.SearchDirectModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #search_cover {
+        padding: 10px;
+        justify-content: flex-end;
+        display: flex;
+    }
+
+    #search_container {
+        background: white;
+        z-index: 2;
+        box-shadow: 10px 20px 40px;
+        padding-bottom: 0;
+        width: 30%;
+        margin-right: 15px;
+    }
+
+    #search_box_cover {
+        padding: 20px;
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-bottom: 0;
+    }
+
+    #search_box {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid gray;
+        margin-right: 10px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn {
+        border: 0px;
+    }
+
+    #directs_btn {
+        border: 0px;
+    }
+
+    .result_search {
+        height: 500px;
+        background: whitesmoke;
+        border-radius: 10px;
+    }
+
+    .list-group {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .list-group-item {
+        display: flex;
+        align-content: center;
+        padding: 12px 15px;
+        border: 0;
+        cursor: pointer;
+        justify-content: space-between
+    }
+
+    .list-group :hover {
+        background-color: lightyellow;
+    }
+
+    .namePoint {
+        font-weight: bold;
+    }
+
+    .addressPoint {
+        font-size: small;
+        padding-left: 1px;
+    }
+
+    .pointContent {
+        border: 0;
+        flex: 7;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 2px;
+    }
+</style>
+
+<div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
+    <div id="search_cover" class="row">
+        <div id="search_container">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "search_box_cover", @class = "input-group" }))
+            {
+                @Html.EditorFor(model => model.keySearch, new { htmlAttributes = new { id = "search_box", @class = "form-control border-0", placeholder = "Search Viet Ban Do Map" } })
+                <div class="input-group-btn">
+                    <button class="btn btn-default" id="search_btn"><i class="glyphicon glyphicon-search"></i></button>
+                    <span style="border: 1px solid grey;padding-top: 10px;padding-bottom: 10px;margin: 0 10px;"></span>
+                    <button class="btn btn-default" id="directs_btn">Directs</button>
+
+                </div>
+            }
+
+            @if (ViewBag.hasResult != null && Convert.ToBoolean(ViewBag.hasResult))
+            {
+                <div id="result_search">
+                    <hr style="border:1px solid lightcoral;margin-bottom:5px" />
+                    <div class="list-group" id="list-point">
+                        @foreach (var point in Model.results)
+                        {
+                            <div class="list-group-item list-group-item-action">
+                                <i class="glyphicon glyphicon-map-marker" style="flex:1; font-size:25px;align-items:center;margin:auto; color:lightcoral"></i>
+                                <div class="pointContent">
+                                    <div class="namePoint" title="@point.Name">@point.Name </div>
+                                    <div class="addressPoint" title="@point.Number @point.Street - @point.District - @point.Province">
+                                        @point.Number @point.Street - @point.District - @point.Province
+                                    </div>
+                                </div>
+                                <div style="flex:0.5;align-items:center;margin:auto;">
+                                    <button class="btn btn-link btn-sm "><i class="glyphicon glyphicon-save"></i></button>
+                                </div>
+
+                                <div class="lng hidden">@point.Latitude</div>
+                                <div class="log hidden">@point.Longitude</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div id="result_search" style="padding:0 22px">
+                    <h5 class="text-danger">@ViewBag.message</h5>
+                </div>}
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/searchDirectPage.js"></script>

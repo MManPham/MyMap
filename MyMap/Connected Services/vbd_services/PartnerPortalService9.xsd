@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Request" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vietbando.Client.Route.Model.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="RouteCriteria">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Duration" />
+      <xs:enumeration value="Distance" />
+      <xs:enumeration value="Traffic" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RouteCriteria" nillable="true" type="tns:RouteCriteria" />
+</xs:schema>
