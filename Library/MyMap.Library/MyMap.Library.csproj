@@ -32,19 +32,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxPro.2">
-      <HintPath>C:\Users\thach\Downloads\AjaxPro.2.dll</HintPath>
+      <HintPath>..\..\Dll\AjaxPro.2.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\Dll\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\..\Dll\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\Dll\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\Dll\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver.Core">
-      <HintPath>..\Dll\MongoDB.Driver.Core.dll</HintPath>
+      <HintPath>..\..\Dll\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver.Legacy">
-      <HintPath>..\Dll\MongoDB.Driver.Legacy.dll</HintPath>
+      <HintPath>..\..\Dll\MongoDB.Driver.Legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,10 +59,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ajax\MongoAjax.cs" />
+    <Compile Include="AjaxController\MongoAjax.cs" />
+    <Compile Include="Respond.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\ConfigConnect.cs" />
     <Compile Include="Provider\MongoProvider.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

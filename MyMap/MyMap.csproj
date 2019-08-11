@@ -156,27 +156,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extended\User.cs" />
     <Compile Include="Models\FindDirectsModel.cs" />
     <Compile Include="Models\SearchDirectModel.cs" />
-    <Compile Include="Models\MyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MyMapSerVices.cs" />
@@ -281,30 +263,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Compile Include="Crypto.cs" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\MyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-      <LastGenOutput>MyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\MyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MyModel.edmx.diagram">
-      <DependentUpon>MyModel.edmx</DependentUpon>
-    </Content>
     <None Include="Connected Services\vbd_services\PartnerPortalService.wsdl" />
     <None Include="Connected Services\vbd_services\PartnerPortalService.xsd">
       <SubType>Designer</SubType>
@@ -347,8 +311,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\loginUser.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\myMap.js" />
+    <Content Include="Scripts\registerUser.js" />
     <Content Include="Scripts\searchDirectPage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -391,7 +357,7 @@
     <WCFMetadataStorage Include="Connected Services\vbd_services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyMap.Library\MyMap.Library.csproj">
+    <ProjectReference Include="..\Library\MyMap.Library\MyMap.Library.csproj">
       <Project>{8532b44c-91d9-43d1-972f-7ceb0a979ebe}</Project>
       <Name>MyMap.Library</Name>
     </ProjectReference>

@@ -16,14 +16,8 @@ namespace GetStartAspNet.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var emailId = User.Identity.Name;
-            using (MyDatabaseEntities1 dc = new MyDatabaseEntities1())
-            {
-                var accountLogin = dc.Users.Where(user => user.EmailID == emailId).FirstOrDefault();
-
-                if (accountLogin != null) return View();
-            }
-            return HttpNotFound();
+         
+            return View();
         }
 
         [HttpPost]

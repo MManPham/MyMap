@@ -8,10 +8,9 @@ namespace GetStartAspNet.Models
 {
     public class UserLogin
     {
-        [Display(Name = "Email Id")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Email Id  required")]
-        [DataType(DataType.EmailAddress)]
-        public string EmailID { get; set; }
+        [Display(Name = "User Name")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "User Name required")]
+        public string UserName { get; set; }
 
         [DataType(DataType.Password)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password required")]
