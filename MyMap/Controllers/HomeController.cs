@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AjaxPro;
+using MyMap.Library.Ajax;
 
 namespace GetStartAspNet.Controllers
 {
@@ -109,8 +110,6 @@ namespace GetStartAspNet.Controllers
         [Authorize]
         public ActionResult MyDirection()
         {
-            ViewBag.Message = "My Direction Page.";
-
             return View();
         }
     }

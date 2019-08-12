@@ -1,17 +1,156 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<style>
+    #search_cover {
+        padding: 10px;
+        justify-content: flex-end;
+        display: flex;
+    }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    #search_container {
+        background: white;
+        z-index: 2;
+        box-shadow: 10px 20px 40px;
+        padding-bottom: 0;
+        width: 30%;
+        margin-right: 15px;
+    }
+
+    #search_box_cover {
+        padding: 10px;
+        font-size:25px;
+        font-weight:500;
+        padding-left:20px;
+        padding-bottom:0;
+    }
+
+    #search_box {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid gray;
+        margin-right: 10px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn {
+        border: 0px;
+    }
+
+    #directs_btn {
+        border: 0px;
+    }
+
+    .result_search {
+        height: 500px;
+        background: whitesmoke;
+        border-radius: 10px;
+    }
+
+    .list-group {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .list-group-item {
+        display: flex;
+        align-content: center;
+        padding: 12px 15px;
+        border: 0;
+        cursor: pointer;
+        justify-content: space-between
+    }
+
+    .list-group :hover {
+        background-color: lightyellow;
+    }
+
+    .namePoint {
+        font-weight: bold;
+    }
+
+    .addressPoint {
+        font-size: small;
+        padding-left: 1px;
+    }
+
+    .pointContent {
+        border: 0;
+        flex: 7;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 2px;
+    }
+
+    .inform {
+        padding: 5px;
+        border: 2px solid;
+        display: none
+    }
+
+    #inform_cover {
+        max-height: 200px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+</style>
+
+<div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
+    <div id="search_cover" class="row">
+        <div id="search_container">
+            <div id="search_box_cover">
+                <div>
+                    <p>List of directs</p>
+                </div>
+            </div>
+
+            @if (ViewBag.hasResult != null && Convert.ToBoolean(ViewBag.hasResult))
+            {
+                <div id="result_search">
+                    <hr style="border:1px solid lightcoral;margin-bottom:5px" />
+                    <div class="list-group" id="list-point">
+                        @foreach (var point in Model.results)
+                        {
+                            <div class="list-group-item list-group-item-action">
+                                <i class="glyphicon glyphicon-map-marker" style="flex:1; font-size:25px;align-items:center;margin:auto; color:lightcoral"></i>
+                                <div class="pointContent">
+                                    <div class="namePoint" title="@point.Name">@point.Name </div>
+                                    <div class="addressPoint" title="@point.Number @point.Street - @point.District - @point.Province">
+                                        @point.Number @point.Street - @point.District - @point.Province
+                                    </div>
+                                </div>
+                                <div id="saveBtn" style="flex:0.5;align-items:center;margin:auto;">
+                                    <button id="btn" class="btn btn-link btn-sm "><i class="glyphicon glyphicon-save"></i></button>
+                                    <div id="lat" class=" hidden">@point.Latitude</div>
+                                    <div id="lng" class=" hidden">@point.Longitude</div>
+                                </div>
+
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div id="result_search" style="padding:0 22px">
+                    <h5 class="text-danger">you haven't still saved any point  </h5>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/searchDirectPage.js"></script>

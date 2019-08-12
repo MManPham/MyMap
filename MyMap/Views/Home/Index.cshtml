@@ -85,6 +85,23 @@
         text-overflow: ellipsis;
         margin-right: 2px;
     }
+
+    .inform {
+        padding: 5px;
+        border: 2px solid;
+        display:none
+    }
+
+    #inform_cover {
+        max-height: 200px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
 </style>
 
 <div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
@@ -101,6 +118,7 @@
                 </div>
             }
 
+
             @if (ViewBag.hasResult != null && Convert.ToBoolean(ViewBag.hasResult))
             {
                 <div id="result_search">
@@ -108,7 +126,7 @@
                     <div class="list-group" id="list-point">
                         @foreach (var point in Model.results)
                         {
-                            <div class="list-group-item list-group-item-action">
+                            <div class="list-group-item list-group-item-action" >
                                 <i class="glyphicon glyphicon-map-marker" style="flex:1; font-size:25px;align-items:center;margin:auto; color:lightcoral"></i>
                                 <div class="pointContent">
                                     <div class="namePoint" title="@point.Name">@point.Name </div>
@@ -116,12 +134,13 @@
                                         @point.Number @point.Street - @point.District - @point.Province
                                     </div>
                                 </div>
-                                <div style="flex:0.5;align-items:center;margin:auto;">
-                                    <button class="btn btn-link btn-sm "><i class="glyphicon glyphicon-save"></i></button>
+                                <div id="saveBtn" style="flex:0.5;align-items:center;margin:auto;">
+                                    <button id="btn" class="btn btn-link btn-sm "><i class="glyphicon glyphicon-save"></i></button>
+                                    <div id="lat" class=" hidden">@point.Latitude</div>
+                                    <div id="lng" class=" hidden">@point.Longitude</div>
                                 </div>
 
-                                <div class="lng hidden">@point.Latitude</div>
-                                <div class="log hidden">@point.Longitude</div>
+
                             </div>
                         }
                     </div>
@@ -131,7 +150,21 @@
             {
                 <div id="result_search" style="padding:0 22px">
                     <h5 class="text-danger">@ViewBag.message</h5>
-                </div>}
+                </div>
+            }
+            <div id="inform_cover">
+                <div id="success_inform" class="inform alert alert-success">
+                    <div class="card-body">
+                        <strong>Success! </strong><span id="success_text"></span>
+                    </div>
+                </div>
+                <div id="fail_inform" class="inform alert alert-danger">
+                    <div class="card-body">
+                        <strong>Error! </strong> <span id="fail_text"></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 ﻿using MongoDB.Driver;
-using MyMap.Library.Models;
+using MyMap.Library.ModelsAjax;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,6 @@ namespace MyMap.Library.Provider
         MongoConnection _mongoConnect = new MongoConnection();
         public MongoDatabase db = null;
 
-        [Obsolete]
         public MongoProvider()
         {
             MongoClient client = new MongoClient(_mongoConnect.ConnectionString);
@@ -24,12 +23,21 @@ namespace MyMap.Library.Provider
             }
         }
 
-        public MongoCollection<User> Users
+        public MongoCollection<UserAjax> Users
         {
             get
             {
-                return db.GetCollection<User>("User");
+                return db.GetCollection<UserAjax>("User");
             }
         }
+
+        public MongoCollection<PointAjax> Point
+        {
+            get
+            {
+                return db.GetCollection<PointAjax>("Point");
+            }
+        }
+
     }
 }
