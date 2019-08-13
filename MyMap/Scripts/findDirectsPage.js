@@ -146,23 +146,26 @@ $(document).ready(function () {
     }
 
     $("#search_btn_startPoitn").click(function () {
+        $('#btn_save_cover').addClass("hidden")
         polylineIsOnlyOne();
         searchDirects(this);
     })
     $("#search_btn_endPoitn").click(function () {
+        $('#btn_save_cover').addClass("hidden")
         polylineIsOnlyOne();
         searchDirects(this);
     })
 
     // SCREEN SHOT
     $("#screenShotStart").click(function () {
+        $('#btn_save_cover').addClass("hidden")
         turnOffResultTap()
         polylineIsOnlyOne();
         flagStartPoint = true;
         $("#containerMap").css('cursor', 'crosshair');
         vbd.event.addListener(map, 'click', function (param) {
             if (flagStartPoint) {
-                $("#seachStartPoint").val(  param.LatLng.toString());
+                $("#seachStartPoint").val(param.LatLng.toString());
                 $("#startPointCover").find(".lat").text(param.LatLng.lat())
                 $("#startPointCover").find(".lng").text(param.LatLng.lng())
                 currentStartMarker = initMarkerSearch(currentStartMarker, param.LatLng, "StartPoint")
@@ -175,6 +178,7 @@ $(document).ready(function () {
     })
 
     $("#screenShotEnd").click(function () {
+        $('#btn_save_cover').addClass("hidden")
         turnOffResultTap()
         polylineIsOnlyOne();
         flagEndPoint = true;
@@ -198,10 +202,26 @@ $(document).ready(function () {
 
     //SUBMIT FINDIRECTS 
 
+    let startPoint = {};
+    let endPoint = {};
     addMarkersDirects = function (markersRaw) {
-        
+
     }
 
+    Set_Value_Point = () => {
+        startPoint = {
+            Name: $("#startPointCover").find("#seachStartPoint").val(),
+            Latitude: Number($("#startPointCover").find(".lat").text()),
+            Longitude: Number($("#startPointCover").find(".lng").text())
+        }
+        endPoint = {
+            Name: $("#endPointCover").find("#seachEndPoint").val(),
+            Latitude: Number($("#endPointCover").find(".lat").text()),
+            Longitude: Number($("#endPointCover").find(".lng").text())
+        }
+
+
+    }
 
     ajaxSuccessFindResult = function (data) {
         let resultDirects = data.FullPath[0];
@@ -213,7 +233,6 @@ $(document).ready(function () {
         if (polyline != null) {
             polyline.setMap(null);
         }
-        alert(123)
         polyline = new vbd.Polyline({
             path: listPoints,
             strokeColor: 'blue', strokeColorArrow: 'blue',
@@ -224,42 +243,91 @@ $(document).ready(function () {
 
     }
 
-    findDirectHandle = function (findDirects, points) {
-        if (!points[0] || !points[1]) {
+    findDirectHandle = function (findDirects, startPoint, endPoint) {
+        if (!startPoint.Name || !endPoint.Name) {
             $("#result_search_view").removeClass("hidden");
             $("#result_search").empty();
-            $("#result_search").append('<h4 class="text-danger" style="padding-left:15px">Start point or end point not found!</h4>')
+            $("#result_search").append('<h4 class="text-danger" style="padding-left:15px">Name of start point or end point is required!</h4>')
         }
         else {
-            $.ajax({
-                type: "POST",
-                url: "/Home/FindDirects",
-                dataType: 'Json',
-                data: { findDirects, points },
-                success: (data) => ajaxSuccessFindResult(data),
-                error: function () {
-                    alert('Sorry. Distance of two point so far');
-                }
-            })
+            if (!startPoint.Latitude || !startPoint.Longitude || !endPoint.Latitude || !endPoint.Longitude) {
+                $("#result_search_view").removeClass("hidden");
+                $("#result_search").empty();
+                $("#result_search").append('<h4 class="text-danger" style="padding-left:15px">Start point or end point not found!</h4>')
+            }
+            else {
+                let points = [startPoint, endPoint]
+                $('#btn_save_cover').removeClass("hidden")
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/FindDirects",
+                    dataType: 'Json',
+                    data: { findDirects, points },
+                    success: (data) => ajaxSuccessFindResult(data),
+                    error: function () {
+                        alert('Sorry. Distance of two point so far');
+                    }
+                })
+            }
         }
     }
     OnSubmitFindDirects = function (findDirect) {
-        alert(12321)
+
         let findDirects = new Object;
         findDirects = {
             nameStartPoint: $("#seachStartPoint").val(),
             nameEndPoint: $("#seachEndPoint").val()
         }
-        points = [{
-            Latitude: $("#startPointCover").find(".lat").text(),
-            Longitude: $("#startPointCover").find(".lng").text()
-        }, {
-            Latitude: $("#endPointCover").find(".lat").text(),
-            Longitude: $("#endPointCover").find(".lng").text()
-        }]
-        findDirectHandle(findDirects, points)
+        Set_Value_Point();
 
+        findDirectHandle(findDirects, startPoint, endPoint)
 
     }
+
+    //SAVE PATH
+    $("#btnRefresh").click(() => {
+        $("#seachStartPoint").val('');
+        $("#seachEndPoint").val('');
+        $(".lat").text('');
+        $(".lng").text('');
+        map = newMap();
+        map.setZoom(6);
+    })
+
+    $("#btnSave").click(() => {
+        $("#nameStartPoint").val(startPoint.Name);
+        $("#nameStartPoint").attr("title",startPoint.Name);
+
+        $("#nameEndPoint").val(endPoint.Name);
+        $("#nameEndPoint").attr("title", endPoint.Name);
+
+    })
+
+    $("#submitSavePath").click(() => {
+        let namePath = $("#namePoint").val();
+        let nameStartPoint = $("#nameStartPoint").val();
+        let nameEndPoint = $("#nameEndPoint").val();
+
+        let PathSave = null;
+    
+        if (!namePath || !nameStartPoint || !nameEndPoint) {
+            $("#errorSavePath").text('Value of feild is required!')
+            $("#informSavePath").removeClass("hidden")
+        } else {
+            startPoint.Name = nameStartPoint;
+            endPoint.Name = nameEndPoint;
+            PathSave = {
+                Name: namePath,
+                StartPoint: null,
+                EndPoint: null
+            }
+            console.log(PathSave)
+            var res = MyMap.Library.Ajax.MongoAjax.AddPath(PathSave,startPoint,endPoint)
+            console.log(res)
+
+        }
+    })
+
+
 
 });

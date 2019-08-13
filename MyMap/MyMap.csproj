@@ -312,6 +312,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\myDirect.js" />
     <Content Include="Scripts\myMap.js" />
     <Content Include="Scripts\searchDirectPage.js" />
     <Content Include="Web.config" />
@@ -325,12 +326,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\MyDirection.cshtml" />
+    <Content Include="Views\Home\MyPoints.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\FindDirects.cshtml" />
+    <Content Include="Views\Home\MyPaths.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

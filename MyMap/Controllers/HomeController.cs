@@ -108,7 +108,13 @@ namespace GetStartAspNet.Controllers
         }
 
         [Authorize]
-        public ActionResult MyDirection()
+        public ActionResult MyPoints()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult MyPaths()
         {
             return View();
         }

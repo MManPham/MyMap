@@ -114,13 +114,29 @@
         margin: auto;
         color: lightcoral
     }
+    #btn_save_cover {
+        display: flex;
+        flex-direction: column;
+        transition:2s;
+    }
+        #btn_save_cover button {
+            margin: 10px;
+        }
+
 </style>
 
 <div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
 
     <div id="search_cover" class="row">
+        <div  style="background-color:lightgray; z-index:2" id="btn_save_cover" class="hidden">
+            <button class="btn btn-link btn-sm " id="btnSave"  data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-save"></i></button>
+            <button class="btn btn-link btn-sm" id="btnRefresh"><i style="color:black" class="glyphicon glyphicon-refresh"></i></button>
+
+        </div>
         <div class="col-xs-6 col-md-4" id="search_container">
-            <div id="findDirecBox" >
+
+
+            <div id="findDirecBox">
                 <div style="flex:0.9">
                     <div id="startPointCover" class="search_box_cover input-group">
                         <button id="screenShotStart" class="btn btn-default screenShot"><i class="iconScreenShot glyphicon glyphicon-screenshot"></i></button>
@@ -146,16 +162,45 @@
                     </button>
                 </div>
             </div>
-
-
-
             <div id="result_search_view" class="hidden">
                 <hr style="border:1px solid lightcoral; margin:5px 0 0 0" />
                 <div class="list-group" id="list-point">
                     <div id="result_search">
-
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#2bbbad;color:white">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title " id="exampleModalLabel">Save Path</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">Name Path:</label>
+                    <input type="text" class="form-control" id="namePoint">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">Name Start Point:</label>
+                    <input type="text" class="form-control" id="nameStartPoint">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">Name End Point:</label>
+                    <input type="text" class="form-control" id="nameEndPoint">
+                </div>
+            </div>
+            <div id="informSavePath" class="alert alert-danger hidden">
+                <strong>Error!</strong> <span id="errorSavePath"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" id="submitSavePath" style="background:#2bbbad" class="btn btn-success">Save</button>
             </div>
         </div>
     </div>

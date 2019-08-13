@@ -39,5 +39,13 @@ namespace MyMap.Library.Provider
             }
         }
 
+        public MongoCollection<PathAjax> Path
+        {
+            get
+            {
+                return db.GetCollection<PathAjax>("Path");
+            }
+        }
+
     }
 }

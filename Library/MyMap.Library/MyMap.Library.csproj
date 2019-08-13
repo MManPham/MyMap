@@ -57,7 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxController\MongoAjax.cs" />
+    <Compile Include="ModelsAjax\DefaultPointAjax.cs" />
+    <Compile Include="ModelsAjax\PathAjax.cs" />
     <Compile Include="ModelsAjax\PointAjax.cs" />
+    <Compile Include="Repository\PathRepository.cs" />
     <Compile Include="Repository\PointRepository.cs" />
     <Compile Include="Respond.cs" />
     <Compile Include="Crypto.cs" />

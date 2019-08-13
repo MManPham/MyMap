@@ -32,7 +32,13 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Seach Direct", "Index", "Home")</li>
                     <li>@Html.ActionLink("Find Directs", "FindDirects", "Home")</li>
-                    <li>@Html.ActionLink("My Direction", "MyDirection", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Direction <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("My Points", "MyPoints", "Home")</li>
+                            <li>@Html.ActionLink("My Paths", "MyPaths", "Home")</li>
+                        </ul>
+                    </li>
                 </ul>
                 @if (Request.IsAuthenticated)
                 {
