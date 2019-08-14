@@ -122,14 +122,29 @@
         #btn_save_cover button {
             margin: 10px;
         }
+    .inform {
+        padding: 5px;
+        border: 2px solid;
+        display: none
+    }
 
+    #inform_cover {
+        max-height: 200px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
 </style>
 
 <div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
 
     <div id="search_cover" class="row">
-        <div  style="background-color:lightgray; z-index:2" id="btn_save_cover" class="hidden">
-            <button class="btn btn-link btn-sm " id="btnSave"  data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-save"></i></button>
+        <div style="background-color:lightgray; z-index:2" id="btn_save_cover" class="hidden">
+            <button class="btn btn-link btn-sm " id="btnSave" data-toggle="modal" data-target="#exampleModal"><i class="glyphicon glyphicon-save"></i></button>
             <button class="btn btn-link btn-sm" id="btnRefresh"><i style="color:black" class="glyphicon glyphicon-refresh"></i></button>
 
         </div>
@@ -170,6 +185,18 @@
                 </div>
             </div>
         </div>
+        <div id="inform_cover">
+            <div id="success_inform" class="inform alert alert-success">
+                <div class="card-body">
+                    <strong>Success! </strong><span id="success_text"></span>
+                </div>
+            </div>
+            <div id="fail_inform" class="inform alert alert-danger">
+                <div class="card-body">
+                    <strong>Error! </strong> <span id="fail_text"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -195,11 +222,11 @@
                     <input type="text" class="form-control" id="nameEndPoint">
                 </div>
             </div>
-            <div id="informSavePath" class="alert alert-danger hidden">
+            <div id="informSavePath" class="alert alert-danger" style="display:none">
                 <strong>Error!</strong> <span id="errorSavePath"></span>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="closeModal" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" id="submitSavePath" style="background:#2bbbad" class="btn btn-success">Save</button>
             </div>
         </div>

@@ -312,7 +312,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\myDirect.js" />
+    <Content Include="Scripts\myPathDirect.js" />
+    <Content Include="Scripts\myPointDirect.js" />
     <Content Include="Scripts\myMap.js" />
     <Content Include="Scripts\searchDirectPage.js" />
     <Content Include="Web.config" />

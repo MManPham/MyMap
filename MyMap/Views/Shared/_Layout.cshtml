@@ -52,8 +52,15 @@
                             <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
                         </ul>
                     }
-
                 }
+                else
+                {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Log in", "Login", "User")</li>
+                            <li>@Html.ActionLink("Register", "Registration", "User")</li>
+                        </ul>
+                }
+
 
             </div>
         </div>

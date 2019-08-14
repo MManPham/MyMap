@@ -219,8 +219,6 @@ $(document).ready(function () {
             Latitude: Number($("#endPointCover").find(".lat").text()),
             Longitude: Number($("#endPointCover").find(".lng").text())
         }
-
-
     }
 
     ajaxSuccessFindResult = function (data) {
@@ -285,18 +283,38 @@ $(document).ready(function () {
     }
 
     //SAVE PATH
-    $("#btnRefresh").click(() => {
-        $("#seachStartPoint").val('');
-        $("#seachEndPoint").val('');
-        $(".lat").text('');
-        $(".lng").text('');
-        map = newMap();
-        map.setZoom(6);
-    })
+
+    onRefresh = () => {
+        $("#btnRefresh").click(() => {
+            $("#seachStartPoint").val('');
+            $("#seachEndPoint").val('');
+            $(".lat").text('');
+            $(".lng").text('');
+
+            map = newMap();
+            map.setZoom(6);
+            $("#namePoint").val('');
+            $("#nameStartPoint").val('');
+            $("#nameEndPoint").val('');
+            $('#btn_save_cover').addClass("hidden")
+            currentEndMarker = null;
+            currentStartMarker = null;
+        })
+    }
+
+    showErrorSavePath=(text)=>
+    {
+        $("#errorSavePath").text(text);
+        $("#informSavePath").fadeToggle("slow");
+        setTimeout(function () {
+            $("#informSavePath").fadeToggle("slow");
+        }, 5000);
+    }
+
 
     $("#btnSave").click(() => {
         $("#nameStartPoint").val(startPoint.Name);
-        $("#nameStartPoint").attr("title",startPoint.Name);
+        $("#nameStartPoint").attr("title", startPoint.Name);
 
         $("#nameEndPoint").val(endPoint.Name);
         $("#nameEndPoint").attr("title", endPoint.Name);
@@ -308,26 +326,42 @@ $(document).ready(function () {
         let nameStartPoint = $("#nameStartPoint").val();
         let nameEndPoint = $("#nameEndPoint").val();
 
-        let PathSave = null;
-    
+        let PathSave = {};
+
         if (!namePath || !nameStartPoint || !nameEndPoint) {
-            $("#errorSavePath").text('Value of feild is required!')
-            $("#informSavePath").removeClass("hidden")
+            showErrorSavePath("Value of feild is required!")
         } else {
+
             startPoint.Name = nameStartPoint;
             endPoint.Name = nameEndPoint;
             PathSave = {
                 Name: namePath,
-                StartPoint: null,
-                EndPoint: null
-            }
-            console.log(PathSave)
-            var res = MyMap.Library.Ajax.MongoAjax.AddPath(PathSave,startPoint,endPoint)
-            console.log(res)
+                StartPoint: startPoint,
+                EndPoint: endPoint,
+                UserName: $("#userName").text(),
+            };
 
+            var res = MyMap.Library.Ajax.MongoAjax.AddPath(PathSave).value
+            console.log(res)
+            if (res.isSuccess) {
+                $('#success_inform').find("#success_text").text(res.Message);
+                $("#success_inform").fadeToggle("slow");
+                setTimeout(function () {
+                    $("#success_inform").fadeToggle("slow");
+                }, 1500);
+                $("#closeModal").click()
+      
+
+                //clean modal
+                $('#btn_save_cover').addClass("hidden")
+                $("#btnRefresh").click()
+            }
+            else {
+                showErrorSavePath(res.Message)
+            }
         }
     })
 
-
+    onRefresh();
 
 });
